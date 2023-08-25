@@ -20,7 +20,6 @@ class aboutController extends Controller
             'title' => 'required|unique:aboutsection,title', // Ensures uniqueness of title
             'description' => 'required',
             'aboutImage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // Add validation rules for other fields as needed
         ]);
 
         // Handle file upload
