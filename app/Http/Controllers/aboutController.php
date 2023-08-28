@@ -14,7 +14,6 @@ class aboutController extends Controller
     }
 
     public function postAbout(Request $request) {
-
         // Validate the request data
         $validatedData = $this->validate($request, [
             'title' => 'required|unique:aboutsection,title', // Ensures uniqueness of title
