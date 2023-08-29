@@ -18,14 +18,16 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-    $router->get('/contact','contactInfoController@getContactInfo');
+    $router->get('/getcontact','contactInfoController@getContactInfo');
+    $router->post('/postcontact','contactInfoController@postContactInfo');
 
     $router->get('/hero','heroController@getHero');
 
-    $router->get('/about','aboutController@getAbout');
+    $router->get('/getabout','aboutController@getAbout');
     $router->post('/postabout','aboutController@postAbout');
 
-    $router->get('/exp','experienceController@getExperiences');
+    $router->get('/getexp','experienceController@getExperiences');
+    $router->post('/postexp','experienceController@postExperiences');
 
     $router->get('/skills','skillsController@getSkills');
 

@@ -48,7 +48,7 @@ class aboutController extends Controller
             return response()->json(
                 [
                     'message' => 'Record created successfully',
-                    'code' => 200
+                    'code' => 201
                 ]
             );
         }
