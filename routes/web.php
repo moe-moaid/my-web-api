@@ -31,5 +31,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->get('/skills','skillsController@getSkills');
 
-    $router->get('/projects','projectsController@getProjects');
+    $router->get('/getprojects','projectsController@getProjects');
+    $router->post('/projects','projectsController@postProjects');
 });

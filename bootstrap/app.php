@@ -73,18 +73,17 @@ $app->configure('app');
 */
 
 // $app->middleware([
-//     App\Http\Middleware\CorsMiddleware::class
+//     App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
+// $app->routeMiddleware([
+//     'auth' => App\Http\Middleware\Authenticate::class,
+// ]);
 $app->register(Fruitcake\Cors\CorsServiceProvider::class);
 $app->configure('cors');
 $app->middleware([
     Fruitcake\Cors\HandleCors::class,
 ]);
-
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
 
 /*
 |--------------------------------------------------------------------------
@@ -101,6 +100,7 @@ $app->middleware([
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
