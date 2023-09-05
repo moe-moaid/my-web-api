@@ -9,7 +9,7 @@ class contactinfo extends Model
 
     public $timestamps = false;
 
-    protected $table = "socialmediaaccounts";
+    protected $table = "contactinfo";
 
     protected $fillable = [
         'platform',
