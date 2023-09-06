@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('projectssection', function (Blueprint $table) {
+        Schema::create('skillssection', function (Blueprint $table) {
             $table->id(); // Auto-incremental primary key
-            $table->string('project_image')->nullable(false); // 'platform' column, not nullable
-            $table->string('project_title')->nullable(false); // 'link' column, not nullable
-            $table->string('project_desc')->nullable(false); // 'link' column, not nullable
+            $table->string('skill_name')->nullable(false); // 'platform' column, not nullable
+            $table->string('percentage')->nullable(false); // 'link' column, not nullable
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projectssection');
+        Schema::dropIfExists('skillssection');
     }
 };

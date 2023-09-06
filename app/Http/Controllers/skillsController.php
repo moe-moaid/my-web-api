@@ -10,4 +10,8 @@ class skillsController extends Controller
     public function getSkills() {
         return skillsSection::all();
     }
+
+    public function postSkills() {
+        
+    }
 }

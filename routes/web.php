@@ -21,7 +21,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('/getcontact','contactInfoController@getContactInfo');
     $router->post('/postcontact','contactInfoController@postContactInfo');
 
-    $router->get('/hero','heroController@getHero');
+    $router->get('/gethero','heroController@getHero');
+    $router->post('/posthero','heroController@postHero');
 
     $router->get('/getabout','aboutController@getAbout');
     $router->post('/postabout','aboutController@postAbout');
@@ -29,8 +30,12 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('/getexp','experienceController@getExperiences');
     $router->post('/postexp','experienceController@postExperiences');
 
-    $router->get('/skills','skillsController@getSkills');
+    $router->get('/getskills','skillsController@getSkills');
+    $router->get('/postskills','skillsController@postSkills');
 
     $router->get('/getprojects','projectsController@getProjects');
-    $router->post('/projects','projectsController@postProjects');
+    $router->post('/postprojects','projectsController@postProjects');
+
+    $router->get('/gettechs','techsController@getTechs');
+    $router->post('/posttechs','techsController@postTechs');
 });

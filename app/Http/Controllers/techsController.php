@@ -3,32 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\projectsSection;
+use App\Models\techsSet;
 
-class projectsController extends Controller
+class techsController extends Controller
 {
-    public function getProjects() {
-        return projectsSection::all();
+    public function getTechs() {
+        return techsSet::all();
     }
 
-    public function postProjects(Request $request) {
+    public function postTechs(Request $request) {
         $validatedData = $this->validate($request, [
-            'project_image' => 'required',
-            'project_title' => 'required',
-            'project_desc' => 'required',
+            'tech_name' => 'required',
+            'tech_image' => 'required',
         ]);
 
         // Handle file upload
-        if ($request->hasFile('project_image')) {
-            $fileName = str_replace(' ', '_', $request->file('project_image')->getClientOriginalName());
+        if ($request->hasFile('tech_image')) {
+            $fileName = str_replace(' ', '_', $request->file('tech_image')->getClientOriginalName());
             $publicPath = base_path('public/assets');
-            $path = $request->file('project_image')->move($publicPath, $fileName); // Save the file to the public/assets directory
+            $path = $request->file('tech_image')->move($publicPath, $fileName); // Save the file to the public/assets directory
             $url = url('assets/'.$fileName); // Generate the public URL for the uploaded file
-            $validatedData['project_image'] = $url; // Store the URL in the database field
+            $validatedData['tech_image'] = $url; // Store the URL in the database field
         }
 
         // Check if the title already exists in the database
-        $existingExp = experiencesection::where('project_title', $validatedData['project_title'])->first();
+        $existingExp = techsSet::where('tech_name', $validatedData['tech_name'])->first();
         // validate the uploaded image
 
         if ($existingExp) {
@@ -41,7 +40,7 @@ class projectsController extends Controller
                 ]);
         } else {
             // Create a new record
-            experiencesection::create($validatedData);
+            techsSet::create($validatedData);
             return response()->json(
                 [
                     'message' => 'Record created successfully',
