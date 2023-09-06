@@ -13,7 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+     Schema::create('tech_set', function (Blueprint $table) {
+            $table->id(); // Auto-incremental primary key
+            $table->string('tech_name')->nullable(false); // 'platform' column, not nullable
+            $table->string('tech_image')->nullable(false); // 'platform' column, not nullable
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tech_set');
     }
 };
